@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   String geoJsonData = '';
   List<LatLng> polylineCoordinates = [];
   Set<Polyline> polylines = {};
+  Color polylineColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +58,14 @@ class _HomePageState extends State<HomePage> {
                       }
                     }
                   },
-                  child: Text('Load GeoJson File', 
-                  style: GoogleFonts.inter(
+                  child: Text(
+                    'Load GeoJson File',
+                    style: GoogleFonts.inter(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
-                    ),),
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -110,9 +113,6 @@ class _HomePageState extends State<HomePage> {
     for (int i = 0; i < features.length; i++) {
       List<LatLng> points = [];
       Map<String, dynamic> feature = features[i];
-      if (kDebugMode) {
-        print("{feature['geometry']?.runtimeType}");
-      }
       List<dynamic> coordinates = feature['geometry']['coordinates'];
       for (var data in coordinates) {
         polylineCoordinates.add(
@@ -125,12 +125,13 @@ class _HomePageState extends State<HomePage> {
       Polyline tempPolyline = Polyline(
           consumeTapEvents: true,
           polylineId: PolylineId('$i'),
-          color: Colors.blue,
+          color: polylineColor, // Change color based on selection
           width: 5,
           points: points,
           onTap: () {
             if (kDebugMode) {
               print('Polyline tapped!');
+              setState(() {});
               showModalBottomSheet(
                   context: context,
                   builder: (BuildContext context) {
@@ -141,12 +142,22 @@ class _HomePageState extends State<HomePage> {
 
       polylines.add(tempPolyline);
     }
+    jsonData.clear;
 
     setState(() {});
   }
 
   void animateToLocation() async {
-    LatLng target = polylineCoordinates[polylineCoordinates.length ~/ 2];
-    mapController?.animateCamera(CameraUpdate.newLatLngZoom(target, 15));
+    Map<String, dynamic> jsonData = jsonDecode(geoJsonData);
+    List<dynamic> features = jsonData['features'];
+    LatLng point = LatLng(
+        features[features.length~/2]['geometry']['coordinates'][0][1],
+        features[features.length~/2]['geometry']['coordinates'][0][0]);
+
+    mapController?.animateCamera(
+      CameraUpdate.newLatLngZoom(
+        point, 11
+      ),
+    );
   }
 }
