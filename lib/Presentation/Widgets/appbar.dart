@@ -13,11 +13,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       elevation: 0, // Remove the shadow
       title: Text(
-        'PCI App',
+        'GeoJSON Data Plotter',
         style: GoogleFonts.inter(
           color: Colors.black,
           fontWeight: FontWeight.w800,
-          fontSize: 32.0,
+          fontSize: 30.0,
         ),
       ),
     );

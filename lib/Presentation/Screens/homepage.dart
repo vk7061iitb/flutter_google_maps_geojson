@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:g_maps/Presentation/Widgets/appbar.dart';
 import 'package:g_maps/shp.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../Widgets/feature_widger.dart';
 
@@ -34,18 +35,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onMapCreated: (GoogleMapController controller) {
                     mapController = controller;
-                    animateToLocation();
                   },
                   polylines: polylines),
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: 10,
             right: 0,
+            left: 0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                
                 ElevatedButton(
                   onPressed: () async {
                     try {
@@ -57,7 +57,12 @@ class _HomePageState extends State<HomePage> {
                       }
                     }
                   },
-                  child: const Text('Load GeoJson File'),
+                  child: Text('Load GeoJson File', 
+                  style: GoogleFonts.inter(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),),
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -72,7 +77,14 @@ class _HomePageState extends State<HomePage> {
                       }
                     }
                   },
-                  child: const Text('Plot Map'),
+                  child: Text(
+                    'Plot Map',
+                    style: GoogleFonts.inter(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
+                  ),
                 ),
               ],
             ),
