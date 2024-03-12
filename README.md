@@ -28,7 +28,9 @@ A Flutter project that enables you to plot GeoJSON data on Google Maps, providin
 4. Optionally, you can tap on a polyline on the map to view additional information about the selected feature.
 
 ## Video Demo
+<html>
 <iframe width="560" height="315" src="https://youtu.be/B8o7_z-CwfY?si=s5ZtbQqTi60dEiDy" frameborder="2" allowfullscreen></iframe>
+</html>
 
 
 
