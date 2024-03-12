@@ -21,7 +21,7 @@ A Flutter project that enables you to plot GeoJSON data on Google Maps, providin
    ```bash
    flutter run
    ```
-## Usages
+## How To Use
 1. Launch the Flutter application on your device.
 2. Tap on the "Load GeoJson File" button to load a GeoJSON file from your device's storage.
 3. After loading the GeoJSON file, tap on the "Plot Map" button to visualize the GeoJSON data on Google Maps.
