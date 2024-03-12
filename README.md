@@ -27,7 +27,8 @@ A Flutter project that enables you to plot GeoJSON data on Google Maps, providin
 3. After loading the GeoJSON file, tap on the "Plot Map" button to visualize the GeoJSON data on Google Maps.
 4. Optionally, you can tap on a polyline on the map to view additional information about the selected feature.
 
-## [Video Demo](https://youtu.be/B8o7_z-CwfY?si=s5ZtbQqTi60dEiDy)
+## [Video Demo]
+[![Video Demo](https://youtu.be/B8o7_z-CwfY?si=s5ZtbQqTi60dEiDy)
 
 
 
