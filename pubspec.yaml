@@ -1,0 +1,30 @@
+name: g_maps
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  dart_hydrologis_utils: ^0.8.1+2
+  dart_jts: ^0.3.0+1
+  dart_shp: ^1.1.1
+  file_picker: ^6.2.0
+  flutter:
+    sdk: flutter
+  geojson_vi: ^2.2.1
+  geolocator: ^11.0.0
+  google_maps: ^7.1.0
+  google_maps_flutter: ^2.6.0
+  open_file: ^3.3.2
+  path: ^1.9.0
+  path_provider: ^2.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
